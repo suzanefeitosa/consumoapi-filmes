@@ -101,3 +101,15 @@ input[type="checkbox"]:focus {
     display: flex;
     justify-content: center;
   }
+
+  @media (max-width: 768px) {
+
+    .search {
+      width: 80%;
+    }
+
+    searchType::placeholder {
+      font-size: 0.725rem;
+    }
+
+  }

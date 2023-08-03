@@ -1,36 +1,36 @@
 import { HeartStraight, Star } from "@phosphor-icons/react";
 import styles from "./Cards.module.css";
 
-export function Cards() {
+
+export function Cards({ title, description, rating, image, addMovie, id }) {
+ 
   return (
     <div className={styles.cardsMovie}>
       <div className={styles.boxIcon}>
-       <img src="./src/assets/movie-icon.svg"/>
+        <img src={image} />
       </div>
       <div className={styles.content}>
-        <div className={styles.titleMovie}> 
-          <p>Batman (2022)</p>
+          <p className={styles.titleMovie}>{title}</p>
+        <div className={styles.ratingFavorite}>
+          <div className={styles.rating}>
+            <Star className={styles.iconStar} size={20} weight="fill" />
+            <span className={styles.textRatingFavorite}>{rating}</span>
+          </div>
+          <div className={styles.favorite}>
+            <button onClick={() => addMovie(id)} className={styles.heartDisLike}>
+              {addMovie ? (
+                <HeartStraight size={20} weight="fill" />
+              ) : (
+                <HeartStraight size={20} weight="light" />
+              )}
+            </button>
+            <span className={styles.textRatingFavorite}>Favorite</span>
+          </div>
         </div>
-      <div className={styles.ratingFavorite}>
-        <div className={styles.rating}>
-          <Star className={styles.iconStar} size={20} weight="fill" />
-          <span className={styles.textRatingFavorite}>9.3</span>
-        </div>
-        <div className={styles.favorite}>
-         <HeartStraight className={styles.heartDisLike} size={20} weight="light" />
-          {/* <HeartStraight className={styles.heartLike} size={20} weight="fill" /> */}
-          <span className={styles.textRatingFavorite}>Favoritar</span>
-        </div>
-        </div>
-        </div>
-        <div className={styles.about}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-            obcaecati ea, quod repellendus ut autem illo voluptatem porro esse
-            at odio. Animi debitis, placeat beatae obcaecati ratione nostrum?
-            Blanditiis, provident.
-          </p>
-        </div>
+      </div>
+      <div className={styles.about}>
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
