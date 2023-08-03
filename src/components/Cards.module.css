@@ -1,0 +1,80 @@
+.cardsMovie {
+    background-color: var(--purple-700);
+    width: 80%;
+    height: 90%;
+    margin: 0 auto 3rem auto;
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.boxIcon {
+    padding: 24px 64px 24px 46px;
+}
+
+.boxIcon img {
+
+  border-radius: 50%;
+  height: 139px;
+  object-fit: cover;
+  width: 139px;  
+  box-shadow: 15px 5px 25px var(--purple-900);
+
+}
+
+.titleMovie {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 64px 0px 24px 0;
+
+}
+
+.content {
+width: 16.75rem;
+}
+
+.rating {
+
+    display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 3.75rem;
+
+}
+
+.favorite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 7.3rem;
+   
+}
+
+.ratingFavorite {
+    display: flex;
+    justify-content: space-between;
+    width: 13.75rem;
+}
+
+.iconStar {
+
+  color: var(--yellow);
+}
+
+.heartDisLike, .heartLike {
+    color: var(--red);
+}
+
+.textRatingFavorite {
+    font-size: 1.125rem;
+
+}
+
+.about {
+    font-weight: 500;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 37px;
+}
