@@ -1,7 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import dotenv from 'dotenv';
+import { join } from 'path';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+export default ({ mode }) => {
+  if (mode === 'development') {
+    const envConfig = dotenv.config({ path: join(__dirname, '.env') }).parsed;
+    return defineConfig({
+      env: envConfig,
+    });
+  } else {
+    return defineConfig();
+  }
+};
