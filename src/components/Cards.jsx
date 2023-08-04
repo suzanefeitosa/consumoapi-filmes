@@ -2,7 +2,7 @@ import { HeartStraight, Star } from "@phosphor-icons/react";
 import styles from "./Cards.module.css";
 
 
-export function Cards({ title, description, rating, image, addMovie, id }) {
+export function Cards({ title, description, rating, image, addMovie, id, isFavorite}) {
  
   return (
     <div className={styles.cardsMovie}>
@@ -18,7 +18,7 @@ export function Cards({ title, description, rating, image, addMovie, id }) {
           </div>
           <div className={styles.favorite}>
             <button onClick={() => addMovie(id)} className={styles.heartDisLike}>
-              {addMovie ? (
+              {isFavorite ? (
                 <HeartStraight size={20} weight="fill" />
               ) : (
                 <HeartStraight size={20} weight="light" />
