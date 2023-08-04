@@ -2,7 +2,6 @@ import { Cards } from "./components/Cards";
 import { Header } from "./components/Header";
 import styles from "./global.css";
 import { useState, useEffect } from "react";
-import { APIKey } from "./config/key";
 import stylesApp from "./App.module.css";
 
 
