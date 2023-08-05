@@ -4,31 +4,43 @@ import styles from "./global.css";
 import { useState, useEffect } from "react";
 import stylesApp from "./App.module.css";
 
-
-
 function App() {
   const imagePath = "https://image.tmdb.org/t/p/w500/";
 
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
 
-  const key = import.meta.env.VITE_API_KEY
+  const key = import.meta.env.VITE_API_KEY;
 
   const handleSearch = (event) => {
-    
-   var search = event.target.value.toUpperCase()
+    var search = event.target.value.toUpperCase();
 
-  const results = (movie) => {
-    if(movie.title.toUpperCase().includes(search)) {
-      return movie
+    setFilterMovies(
+      movies.filter((movie) => {
+        if (movie.title.toUpperCase().includes(search)) {
+          return movie;
+        }
+      })
+    );
+  };
+
+  const handleShowFavorites = (event) => {
+
+    if(event.target.checked){
+      var showFavorites = movies.filter((movie) => {
+        if(movie.isFavorite){
+          return movie
+        }
+      })
+      setFilterMovies(showFavorites)
+    }else{
+      setFilterMovies(movies)
     }
+
+
   }
 
-  setFilterMovies(movies.filter(results));
-  
-  }
-
-  const handleAddMovie = (id) => {
+  const handleAddFavorite = (id) => {
     setMovies(
       movies.map((movie) => {
         if (movie.id == id) {
@@ -56,9 +68,10 @@ function App() {
 
   return (
     <>
-      <Header 
-      handleSearch={handleSearch}
-      />
+      <Header
+       handleSearch={handleSearch}
+       handleShowFavorites={handleShowFavorites} 
+       />
 
       {filterMovies.map((movie) => {
         return (
@@ -69,7 +82,7 @@ function App() {
             description={movie.overview}
             rating={movie.vote_average}
             image={`${imagePath}${movie.poster_path}`}
-            addMovie={handleAddMovie}
+            addMovie={handleAddFavorite}
             isFavorite={movie.isFavorite}
           />
         );
