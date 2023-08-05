@@ -10,8 +10,23 @@ function App() {
   const imagePath = "https://image.tmdb.org/t/p/w500/";
 
   const [movies, setMovies] = useState([]);
+  const [filterMovies, setFilterMovies] = useState([]);
 
   const key = import.meta.env.VITE_API_KEY
+
+  const handleSearch = (event) => {
+    
+   var search = event.target.value.toUpperCase()
+
+  const results = (movie) => {
+    if(movie.title.toUpperCase().includes(search)) {
+      return movie
+    }
+  }
+
+  setFilterMovies(movies.filter(results));
+  
+  }
 
   const handleAddMovie = (id) => {
     setMovies(
@@ -35,14 +50,17 @@ function App() {
           return movie;
         });
         setMovies(newMovies);
+        setFilterMovies(newMovies);
       });
   }, []);
 
   return (
     <>
-      <Header />
+      <Header 
+      handleSearch={handleSearch}
+      />
 
-      {movies.map((movie) => {
+      {filterMovies.map((movie) => {
         return (
           <Cards
             key={movie.id}
