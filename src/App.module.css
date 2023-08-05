@@ -1,4 +1,12 @@
+
+
 .footer p {
   text-align: center;
   padding: 4px;
+
+}
+
+.noMovies {
+  text-align: center;
+  margin-bottom: 4rem;
 }
