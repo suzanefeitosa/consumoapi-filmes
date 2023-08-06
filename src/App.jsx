@@ -142,7 +142,7 @@ function App() {
           />
         );
       })
-      :<h1 className={stylesApp.noMovies}>Ops! No Movies Founded :(
+      :<h1 className={stylesApp.noMovies}>Ops! No Movies Found :(
       </h1>
       
       }
